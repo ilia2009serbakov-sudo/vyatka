@@ -1,0 +1,1623 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Вятка Поколения — большой городской дом в Кирове. Пространства для работы, занятий, творчества, встреч и городских событий.">
+<title>Вятка Поколения — большой городской дом</title>
+
+<style>
+:root {
+    --paper: #f2f0e9;
+    --white: #fffefa;
+    --ink: #20231f;
+    --muted: #777970;
+    --line: #c9c8bd;
+    --red: #bd3c2c;
+    --green: #344c3d;
+    --serif: Georgia, "Times New Roman", serif;
+    --sans: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: min(1320px, calc(100% - 64px));
+    margin: 0 auto;
+}
+
+.topline {
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: .04em;
+    color: var(--muted);
+}
+
+.topline-inner {
+    min-height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header {
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 10;
+    background: var(--paper);
+}
+
+.header-inner {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.logo {
+    font-family: var(--serif);
+    font-size: 25px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    font-size: 13px;
+}
+
+.nav a {
+    transition: color .2s;
+}
+
+.nav a:hover {
+    color: var(--red);
+}
+
+.header-contact {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.header-contact a:last-child {
+    background: var(--ink);
+    color: white;
+    padding: 11px 17px;
+}
+
+.menu-button {
+    display: none;
+    border: 0;
+    background: none;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* Первый экран */
+
+.hero {
+    padding: 76px 0 65px;
+}
+
+.hero-top {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 38px;
+}
+
+.kicker {
+    color: var(--red);
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .13em;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(58px, 8.5vw, 116px);
+    line-height: .88;
+    font-weight: 400;
+    letter-spacing: -.065em;
+    max-width: 900px;
+}
+
+.hero h1 span {
+    color: var(--red);
+    font-style: italic;
+}
+
+.hero-description {
+    max-width: 270px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: #55584f;
+    padding-bottom: 5px;
+}
+
+.hero-image {
+    min-height: 440px;
+    background: #d8d5ca;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.hero-image::before {
+    content: "ФОТОГРАФИЯ ЦЕНТРА";
+    position: absolute;
+    top: 24px;
+    left: 25px;
+    color: #77786f;
+    font-size: 10px;
+    letter-spacing: .14em;
+}
+
+.hero-image::after {
+    content: "Здесь будет фотография здания или общего пространства";
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    font-family: var(--serif);
+    font-size: 22px;
+    color: #686960;
+}
+
+.hero-caption {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    font-size: 11px;
+    color: #77786f;
+}
+
+.facts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+    margin-top: 30px;
+}
+
+.fact {
+    padding: 22px 20px 22px 0;
+    border-right: 1px solid var(--line);
+}
+
+.fact:not(:first-child) {
+    padding-left: 25px;
+}
+
+.fact:last-child {
+    border-right: 0;
+}
+
+.fact strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.fact span {
+    display: block;
+    margin-top: 7px;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* Разделы */
+
+.section {
+    padding: 95px 0;
+    border-top: 1px solid var(--line);
+}
+
+.section-heading {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 45px;
+    margin-bottom: 50px;
+}
+
+.section-number {
+    color: var(--red);
+    font-size: 12px;
+    letter-spacing: .08em;
+}
+
+.section-heading h2 {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5vw, 65px);
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: -.04em;
+    max-width: 760px;
+}
+
+.section-heading p {
+    max-width: 500px;
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Направления */
+
+.directions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid var(--line);
+}
+
+.direction {
+    display: grid;
+    grid-template-columns: 55px 1fr 30px;
+    gap: 20px;
+    align-items: start;
+    padding: 27px 20px 27px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.direction:nth-child(odd) {
+    border-right: 1px solid var(--line);
+}
+
+.direction:nth-child(even) {
+    padding-left: 25px;
+}
+
+.direction-index {
+    color: var(--red);
+    font-size: 12px;
+    padding-top: 7px;
+}
+
+.direction h3 {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 400;
+    line-height: 1.15;
+}
+
+.direction p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    max-width: 420px;
+}
+
+.direction-arrow {
+    font-size: 22px;
+    transition: transform .2s;
+}
+
+.direction:hover .direction-arrow {
+    transform: translate(4px, -4px);
+    color: var(--red);
+}
+
+/* Пространства */
+
+.spaces {
+    background: var(--green);
+    color: var(--white);
+}
+
+.spaces .section-number {
+    color: #e68b70;
+}
+
+.spaces .section-heading p {
+    color: #c5c9bf;
+}
+
+.space-list {
+    border-top: 1px solid rgba(255,255,255,.3);
+}
+
+.space-row {
+    display: grid;
+    grid-template-columns: 70px 1fr 160px;
+    gap: 25px;
+    align-items: center;
+    padding: 23px 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+}
+
+.space-row span {
+    font-size: 12px;
+    color: #c5c9bf;
+}
+
+.space-row h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.space-row p {
+    font-size: 12px;
+    color: #c5c9bf;
+    text-align: right;
+}
+
+/* Расписание */
+
+.schedule-note {
+    background: #e7e4da;
+    padding: 17px 20px;
+    font-size: 13px;
+    margin-bottom: 30px;
+    border-left: 3px solid var(--red);
+}
+
+.schedule-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.schedule-controls button {
+    border: 1px solid var(--line);
+    background: transparent;
+    padding: 10px 17px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.schedule-controls button.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: white;
+}
+
+.days {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 25px;
+}
+
+.days button {
+    border: 0;
+    background: transparent;
+    padding: 8px 12px;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.days button.active {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.schedule-list {
+    border-top: 1px solid var(--line);
+}
+
+.schedule-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 230px;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.schedule-time {
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 700;
+}
+
+.schedule-name {
+    font-family: var(--serif);
+    font-size: 21px;
+}
+
+.schedule-info {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: right;
+}
+
+.empty {
+    padding: 25px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* Аренда */
+
+.rent-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-bottom: 45px;
+}
+
+.rent-intro p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 520px;
+}
+
+.price-list {
+    border-top: 1px solid var(--line);
+}
+
+.price-row {
+    display: grid;
+    grid-template-columns: 1fr 170px 180px;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+}
+
+.price-row h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.price-row p {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.price-row strong {
+    text-align: right;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.price-disclaimer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* История */
+
+.story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: start;
+}
+
+.story h2 {
+    font-family: var(--serif);
+    font-size: clamp(42px, 5vw, 66px);
+    font-weight: 400;
+    line-height: .98;
+    letter-spacing: -.04em;
+}
+
+.story-text {
+    font-size: 15px;
+    color: #55584f;
+}
+
+.story-text p + p {
+    margin-top: 18px;
+}
+
+.story-fact {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+}
+
+.story-fact strong {
+    color: var(--red);
+    font-weight: 400;
+}
+
+/* Контакты */
+
+.contacts {
+    background: #e5e2d8;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.contact-layout h2 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 6vw, 80px);
+    font-weight: 400;
+    line-height: .95;
+    letter-spacing: -.05em;
+}
+
+.contact-layout h2 span {
+    color: var(--red);
+    font-style: italic;
+}
+
+.contact-lead {
+    margin-top: 25px;
+    max-width: 390px;
+    color: #65675f;
+    font-size: 14px;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.contact-links a {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 13px 19px;
+    font-size: 13px;
+}
+
+.contact-links a.secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+}
+
+.contact-details {
+    border-top: 1px solid #b9b8ae;
+}
+
+.contact-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 15px;
+    padding: 19px 0;
+    border-bottom: 1px solid #b9b8ae;
+    font-size: 14px;
+}
+
+.contact-row span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.footer {
+    padding: 28px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+}
+
+.footer strong {
+    font-family: var(--serif);
+    color: var(--ink);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Адаптивность */
+
+@media (max-width: 1000px) {
+    .nav {
+        gap: 14px;
+    }
+
+    .header-contact {
+        display: none;
+    }
+
+    .section-heading {
+        grid-template-columns: 150px 1fr;
+    }
+
+    .schedule-item {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .schedule-info {
+        grid-column: 2;
+        text-align: left;
+    }
+}
+
+@media (max-width: 720px) {
+    .container {
+        width: min(100% - 36px, 600px);
+    }
+
+    .topline-inner {
+        min-height: 32px;
+        font-size: 10px;
+    }
+
+    .header-inner {
+        min-height: 68px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 20px 18px 25px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .hero {
+        padding: 55px 0 45px;
+    }
+
+    .hero-top {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .hero h1 {
+        font-size: clamp(55px, 14vw, 85px);
+    }
+
+    .hero-description {
+        max-width: 440px;
+    }
+
+    .hero-image {
+        min-height: 300px;
+    }
+
+    .facts {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fact {
+        padding: 17px 10px 17px 0;
+    }
+
+    .fact:not(:first-child) {
+        padding-left: 15px;
+    }
+
+    .fact:nth-child(2) {
+        border-right: 0;
+    }
+
+    .fact:nth-child(3),
+    .fact:nth-child(4) {
+        border-top: 1px solid var(--line);
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .section-heading {
+        display: block;
+        margin-bottom: 32px;
+    }
+
+    .section-heading h2 {
+        margin-top: 16px;
+    }
+
+    .directions {
+        grid-template-columns: 1fr;
+    }
+
+    .direction:nth-child(odd) {
+        border-right: 0;
+    }
+
+    .direction:nth-child(even) {
+        padding-left: 0;
+    }
+
+    .direction {
+        grid-template-columns: 35px 1fr 25px;
+        gap: 12px;
+        padding: 22px 0;
+    }
+
+    .direction h3 {
+        font-size: 24px;
+    }
+
+    .space-row {
+        grid-template-columns: 35px 1fr;
+        gap: 12px;
+    }
+
+    .space-row p {
+        grid-column: 2;
+        text-align: left;
+    }
+
+    .rent-intro,
+    .story,
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .price-row {
+        grid-template-columns: 1fr auto;
+        gap: 8px 15px;
+    }
+
+    .price-row p {
+        grid-column: 1;
+    }
+
+    .price-row strong {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .schedule-item {
+        grid-template-columns: 90px 1fr;
+        gap: 8px 13px;
+        padding: 16px 0;
+    }
+
+    .schedule-time {
+        font-size: 12px;
+    }
+
+    .schedule-name {
+        font-size: 19px;
+    }
+
+    .schedule-info {
+        grid-column: 2;
+    }
+
+    .contact-row {
+        grid-template-columns: 105px 1fr;
+        gap: 10px;
+        font-size: 13px;
+    }
+
+    .footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        width: calc(100% - 28px);
+    }
+
+    .hero h1 {
+        font-size: 52px;
+    }
+
+    .fact strong {
+        font-size: 29px;
+    }
+
+    .direction h3 {
+        font-size: 21px;
+    }
+
+    .schedule-controls button {
+        padding: 8px 11px;
+    }
+
+    .days {
+        gap: 2px;
+    }
+
+    .days button {
+        padding: 7px 8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topline">
+    <div class="container topline-inner">
+        <span>КИРОВ · ГЕРЦЕНА, 10</span>
+        <span>ЕЖЕДНЕВНО · 7:00–22:00</span>
+    </div>
+</div>
+
+<header class="header">
+    <div class="container header-inner">
+        <a href="#top" class="logo">Вятка<span>.</span>Поколения</a>
+
+        <nav class="nav" id="nav">
+            <a href="#about">О доме</a>
+            <a href="#directions">Направления</a>
+            <a href="#spaces">Пространства</a>
+            <a href="#schedule">Расписание</a>
+            <a href="#rent">Аренда</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+        <div class="header-contact">
+            <a href="tel:+78332737395">+7 (8332) 73-73-95</a>
+            <a href="https://vk.ru/vyatka_pokoleniya" target="_blank" rel="noopener">Написать нам ↗</a>
+        </div>
+
+        <button class="menu-button" id="menuButton" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    </div>
+</header>
+
+<main id="top">
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-top">
+                <div>
+                    <div class="kicker">Большой городской дом · Киров</div>
+                    <h1>Место,<br>где каждый<br><span>делает своё.</span></h1>
+                </div>
+
+                <p class="hero-description">
+                    «Вятка Поколения» — пространство для работы, творчества,
+                    занятий, встреч и городских событий. Один дом — множество
+                    самостоятельных людей и проектов.
+                </p>
+            </div>
+
+            <div class="hero-image">
+                <span class="hero-caption">01 / БОЛЬШОЙ ДОМ</span>
+            </div>
+
+            <div class="facts">
+                <div class="fact">
+                    <strong>1 650</strong>
+                    <span>м² общей площади</span>
+                </div>
+                <div class="fact">
+                    <strong>20+</strong>
+                    <span>разных пространств</span>
+                </div>
+                <div class="fact">
+                    <strong>100+</strong>
+                    <span>специалистов и команд</span>
+                </div>
+                <div class="fact">
+                    <strong>1</strong>
+                    <span>общий городской дом</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">01 / О ПРОЕКТЕ</div>
+                <div>
+                    <h2>Не просто здание.<br>Место для своих дел.</h2>
+                    <p>
+                        Здесь можно работать, проводить занятия, встречаться,
+                        заниматься творчеством, организовывать события или
+                        находить специалистов для себя и своей семьи.
+                    </p>
+                </div>
+            </div>
+
+            <div class="story">
+                <div>
+                    <h2>Один адрес.<br>Много разных<br>историй.</h2>
+                </div>
+
+                <div class="story-text">
+                    <p>
+                        «Вятка Поколения» — большой городской дом в центре
+                        Кирова. Под одной крышей объединены кабинеты, залы,
+                        рабочие места, детские пространства и площадки для
+                        встреч.
+                    </p>
+                    <p>
+                        Специалисты и команды самостоятельно ведут свою
+                        деятельность и отвечают за оказываемые услуги.
+                        Центр предоставляет помещения и инфраструктуру,
+                        помогает с информацией и навигацией.
+                    </p>
+                    <p>
+                        Для семей это возможность находить разные занятия
+                        для детей и взрослых в одном месте. Пока ребёнок
+                        занимается, взрослый может поработать в коворкинге
+                        или воспользоваться другими пространствами.
+                    </p>
+
+                    <div class="story-fact">
+                        <strong>Социальное предприятие</strong><br>
+                        У проекта подтверждён статус социального предприятия.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="directions">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">02 / ЧТО ЗДЕСЬ ЕСТЬ</div>
+                <div>
+                    <h2>Каждый найдёт<br>своё направление.</h2>
+                    <p>
+                        В доме работают самостоятельные специалисты,
+                        объединения и команды. Направления и доступность
+                        занятий уточняйте у администратора.
+                    </p>
+                </div>
+            </div>
+
+            <div class="directions">
+                <a class="direction" href="#schedule">
+                    <span class="direction-index">01</span>
+                    <div>
+                        <h3>Детям</h3>
+                        <p>Подготовка к школе, творчество, спорт, танцы,
+                        конструирование и развивающие занятия.</p>
+                    </div>
+                    <span class="direction-arrow">↗</span>
+                </a>
+
+                <a class="direction" href="#schedule">
+                    <span class="direction-index">02</span>
+                    <div>
+                        <h3>Взрослым</h3>
+                        <p>Йога, фитнес, танцы, гимнастика, творческие
+                        встречи и занятия по интересам.</p>
+                    </div>
+                    <span class="direction-arrow">↗</span>
+                </a>
+
+                <a class="direction" href="#spaces">
+                    <span class="direction-index">03</span>
+                    <div>
+                        <h3>Работа и встречи</h3>
+                        <p>Коворкинг, кабинеты, учебные классы,
+                        переговоры и рабочие места.</p>
+                    </div>
+                    <span class="direction-arrow">↗</span>
+                </a>
+
+                <a class="direction" href="#rent">
+                    <span class="direction-index">04</span>
+                    <div>
+                        <h3>Творчество и досуг</h3>
+                        <p>Мастер-классы, настольные игры, театр,
+                        каллиграфия, фотосъёмки и клубные встречи.</p>
+                    </div>
+                    <span class="direction-arrow">↗</span>
+                </a>
+
+                <a class="direction" href="#rent">
+                    <span class="direction-index">05</span>
+                    <div>
+                        <h3>События</h3>
+                        <p>Дни рождения, семейные праздники,
+                        корпоративы, лекции и мастер-классы.</p>
+                    </div>
+                    <span class="direction-arrow">↗</span>
+                </a>
+
+                <a class="direction" href="#directions">
+                    <span class="direction-index">06</span>
+                    <div>
+                        <h3>Серебряный возраст</h3>
+                        <p>Занятия для старшего поколения,
+                        танцы, фитнес и межпоколенческие встречи.</p>
+                    </div>
+                    <span class="direction-arrow">↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section spaces" id="spaces">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">03 / ПРОСТРАНСТВА</div>
+                <div>
+                    <h2>Помещения<br>под разные задачи.</h2>
+                    <p>
+                        Можно арендовать пространство для занятий,
+                        консультаций, тренировок, встреч, праздников
+                        и рабочих задач.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-list">
+                <div class="space-row">
+                    <span>01</span>
+                    <h3>Залы для занятий и тренировок</h3>
+                    <p>Фитнес · танцы · йога · единоборства</p>
+                </div>
+                <div class="space-row">
+                    <span>02</span>
+                    <h3>Кабинеты и учебные классы</h3>
+                    <p>Консультации · обучение · работа</p>
+                </div>
+                <div class="space-row">
+                    <span>03</span>
+                    <h3>Творческие пространства</h3>
+                    <p>Мастер-классы · репетиции · творчество</p>
+                </div>
+                <div class="space-row">
+                    <span>04</span>
+                    <h3>Игровые комнаты</h3>
+                    <p>Настольные игры · приставка · кино</p>
+                </div>
+                <div class="space-row">
+                    <span>05</span>
+                    <h3>Коворкинг</h3>
+                    <p>Рабочие места · индивидуальная работа</p>
+                </div>
+                <div class="space-row">
+                    <span>06</span>
+                    <h3>Пространства для событий</h3>
+                    <p>Праздники · встречи · мероприятия</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="schedule">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">04 / РАСПИСАНИЕ</div>
+                <div>
+                    <h2>Что происходит<br>в течение недели.</h2>
+                    <p>
+                        Выберите направление и день, чтобы посмотреть
+                        занятия из расписания центра.
+                    </p>
+                </div>
+            </div>
+
+            <div class="schedule-note">
+                На занятия необходима предварительная запись в сообщениях
+                сообщества за 1–2 дня. Некоторые занятия чередуются
+                каждые две недели — актуальное расписание уточняйте
+                у администратора.
+            </div>
+
+            <div class="schedule-controls">
+                <button class="active" data-kind="kids">Детям</button>
+                <button data-kind="adults">Взрослым</button>
+            </div>
+
+            <div class="days" id="days"></div>
+            <div class="schedule-list" id="scheduleList"></div>
+        </div>
+    </section>
+
+    <section class="section" id="rent">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">05 / АРЕНДА И СТОИМОСТЬ</div>
+                <div>
+                    <h2>Пространство<br>для вашей идеи.</h2>
+                    <p>
+                        Можно арендовать только помещение или собрать
+                        мероприятие вместе с резидентами центра.
+                    </p>
+                </div>
+            </div>
+
+            <div class="rent-intro">
+                <p>
+                    В центре можно провести детский день рождения,
+                    семейный праздник, выпускной, корпоратив, мастер-класс,
+                    лекцию, тренинг, клубную встречу, кинопоказ или репетицию.
+                </p>
+                <p>
+                    Чтобы подобрать помещение, сообщите дату, время,
+                    количество гостей и формат события. Для детских
+                    мероприятий также укажите возраст детей.
+                </p>
+            </div>
+
+            <div class="price-list">
+                <div class="price-row">
+                    <div>
+                        <h3>Залы</h3>
+                        <p>Фитнес, танцевальный, йога, единоборства, синий зал</p>
+                    </div>
+                    <strong>от 600 ₽ / час</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Кабинеты</h3>
+                        <p>Учебный класс, кабинет психолога, творческая студия</p>
+                    </div>
+                    <strong>600 ₽ / час</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Коворкинг</h3>
+                        <p>Разовое рабочее место</p>
+                    </div>
+                    <strong>200 ₽ / час</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Коворкинг на день</h3>
+                        <p>Рабочее место до 8 часов</p>
+                    </div>
+                    <strong>700 ₽</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Игровой формат</h3>
+                        <p>Настольные игры, приставка, свободное время</p>
+                    </div>
+                    <strong>200 ₽ / чел. / час</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Детская комната</h3>
+                        <p>Присмотр за ребёнком в игровой комнате</p>
+                    </div>
+                    <strong>350 ₽ / час</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Дни рождения</h3>
+                        <p>В зоне кофейни</p>
+                    </div>
+                    <strong>от 2 500 ₽ / час</strong>
+                </div>
+
+                <div class="price-row">
+                    <div>
+                        <h3>Фотосъёмка</h3>
+                        <p>Частная фотосессия</p>
+                    </div>
+                    <strong>600 ₽ / час</strong>
+                </div>
+            </div>
+
+            <p class="price-disclaimer">
+                Стоимость может меняться в зависимости от помещения,
+                дня, времени, оборудования, количества гостей и формата
+                сопровождения. Перед бронированием уточняйте актуальные
+                цены и наличие свободного времени.
+            </p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">06 / ГОРОДСКИЕ ИНИЦИАТИВЫ</div>
+                <div>
+                    <h2>Люди делают<br>это место живым.</h2>
+                    <p>
+                        Вокруг центра объединяются специалисты, семьи,
+                        добровольцы и городские сообщества.
+                    </p>
+                </div>
+            </div>
+
+            <div class="story">
+                <div>
+                    <h2>Музыкальные<br>вечера на<br>Вятке.</h2>
+                </div>
+
+                <div class="story-text">
+                    <p>
+                        Музыкальные вечера объединили исполнителей,
+                        мастеров, добровольцев, семьи и городские сообщества.
+                        Кто-то готовил выступление, кто-то проводил
+                        мастер-класс, помогал с организацией или приводил
+                        свою аудиторию.
+                    </p>
+                    <p>
+                        Это стало площадкой сотрудничества, где люди
+                        знакомятся, помогают друг другу и создают новые
+                        связи.
+                    </p>
+                    <div class="story-fact">
+                        <strong>«Город добрых соседей» · 2026</strong><br>
+                        Проект — победитель конкурса «Город добрых соседей».
+                        Организатор — АНО «Вятка Поколения».
+                    </div>
+                    <p style="margin-top:24px">
+                        <a href="https://vk.ru/vyatka_pokoleniya"
+                           target="_blank" rel="noopener"
+                           style="color:var(--red);text-decoration:underline;text-underline-offset:4px">
+                            Новости и события центра ↗
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-heading">
+                <div class="section-number">07 / ПРАВИЛА ДОМА</div>
+                <div>
+                    <h2>Здесь важно<br>уважать друг друга.</h2>
+                    <p>
+                        Правила нужны для безопасности детей, спокойствия
+                        гостей и сохранности общего пространства.
+                    </p>
+                </div>
+            </div>
+
+            <div class="price-list">
+                <div class="price-row">
+                    <div><h3>Безопасность детей</h3>
+                    <p>До передачи ребёнка педагогу ответственность несёт родитель или сопровождающий взрослый.</p></div>
+                </div>
+                <div class="price-row">
+                    <div><h3>Общие помещения</h3>
+                    <p>В коридорах, на лестницах и в холле дети должны находиться под контролем взрослых.</p></div>
+                </div>
+                <div class="price-row">
+                    <div><h3>Бережное отношение</h3>
+                    <p>Относитесь бережно к помещению, мебели, оборудованию и другим гостям.</p></div>
+                </div>
+                <div class="price-row">
+                    <div><h3>Уважительное общение</h3>
+                    <p>Недопустимы агрессия, давление, мат и фамильярность.</p></div>
+                </div>
+                <div class="price-row">
+                    <div><h3>Фото и видео</h3>
+                    <p>Публикация фото и видео детей возможна только с согласия родителей или законных представителей.</p></div>
+                </div>
+                <div class="price-row">
+                    <div><h3>Личные данные</h3>
+                    <p>Контакты клиентов не передаются третьим лицам без прямого запроса и отдельного согласия.</p></div>
+                </div>
+                <div class="price-row">
+                    <div><h3>Запись и оплата</h3>
+                    <p>Вопросы записи, оплаты, переноса, возврата и бронирования согласовываются через администратора.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section contacts" id="contacts">
+        <div class="container">
+            <div class="contact-layout">
+                <div>
+                    <div class="kicker">Киров · Герцена, 10</div>
+                    <h2>Загляните<br>в <span>большой дом.</span></h2>
+                    <p class="contact-lead">
+                        Расскажите, что вы ищете: занятие для ребёнка,
+                        пространство для работы, зал для тренировки
+                        или место для события.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="https://vk.ru/vyatka_pokoleniya"
+                           target="_blank" rel="noopener">Написать в VK ↗</a>
+                        <a href="tel:+78332737395" class="secondary">Позвонить</a>
+                    </div>
+                </div>
+
+                <div class="contact-details">
+                    <div class="contact-row">
+                        <span>Адрес</span>
+                        <a href="https://yandex.ru/maps/?text=Киров%2C%20улица%20Герцена%2C%2010"
+                           target="_blank" rel="noopener">г. Киров, ул. Герцена, 10 ↗</a>
+                    </div>
+                    <div class="contact-row">
+                        <span>Телефон</span>
+                        <a href="tel:+78332737395">+7 (8332) 73-73-95</a>
+                    </div>
+                    <div class="contact-row">
+                        <span>Почта</span>
+                        <a href="mailto:vyatka.estate@yandex.ru">vyatka.estate@yandex.ru</a>
+                    </div>
+                    <div class="contact-row">
+                        <span>Режим работы</span>
+                        <strong>Ежедневно · 7:00–22:00</strong>
+                    </div>
+                    <div class="contact-row">
+                        <span>Сообщество</span>
+                        <a href="https://vk.ru/vyatka_pokoleniya"
+                           target="_blank" rel="noopener">Вятка Поколения в VK ↗</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container footer">
+        <strong>Вятка Поколения</strong>
+        <span>Большой городской дом · Киров · Герцена, 10</span>
+        <span>Услуги оказывают самостоятельные резиденты и специалисты.</span>
+        <a href="#top">Наверх ↑</a>
+    </div>
+</footer>
+
+<script>
+const scheduleData = {
+    kids: {
+        "Понедельник": [
+            ["9:00–16:00", "Летний клуб", ""],
+            ["10:00–11:00", "ОФП / граффити", ""],
+            ["14:00–15:00", "Кулинарный мастер-класс / танцы", ""],
+            ["15:00–16:00", "Подготовка к школе · группа 5–6 лет", ""],
+            ["16:00–17:00", "Подготовка к школе · группа 6–7 лет", ""]
+        ],
+        "Вторник": [
+            ["9:00–16:00", "Летний клуб", ""],
+            ["10:00–11:00", "Песочные занятия / танцы", ""],
+            ["10:00–15:00", "Подготовка к школе · индивидуально, 5–7 лет", ""],
+            ["13:30–14:30", "Творческий / кулинарный мастер-класс", ""],
+            ["18:30", "Брейк-данс", ""]
+        ],
+        "Среда": [
+            ["9:00–16:00", "Летний клуб", ""],
+            ["10:00–11:00", "Брейк-данс / творческий мастер-класс", ""],
+            ["14:00–15:00", "Кулинарный мастер-класс / ОФП", ""],
+            ["17:00", "Лего-конструирование · 5–9 лет", ""],
+            ["18:00", "Скалodром и ОФP · 6–9 лет", ""]
+        ],
+        "Четверг": [
+            ["9:00–16:00", "Летний клуб", ""],
+            ["10:00–11:00", "Гимнастика / музыка", ""],
+            ["14:00–15:00", "Интерактивная программа / шитьё", ""],
+            ["15:00–16:00", "Подготовка к школе · группа 5–6 лет", ""],
+            ["16:00–17:00", "Подготовка к школе · группа 6–7 лет", ""],
+            ["18:30", "Брейк-данс", ""]
+        ],
+        "Пятница": [
+            ["9:00–16:00", "Летний клуб", ""],
+            ["10:00–11:00", "Каратэ / тайский бокс", ""],
+            ["10:00–15:00", "Подготовка к школе · индивидуально, 5–7 лет", ""],
+            ["14:00", "Театр", ""]
+        ],
+        "Суббота": [
+            ["09:30–12:30", "Комплекс сбалансированного развития · 3–5 лет", "Скалodром / гимнастика, песочные световые столы / музыка, перекус, сказкотерапия / творчество"],
+            ["13:00–17:00", "Семейный клуб выходного дня", "Время открытых дверей в Центре"]
+        ],
+        "Воскресенье": []
+    },
+
+    adults: {
+        "Понедельник": [
+            ["6:30–7:20", "Бодифлекс для женщин", "Надежда Рязанова · танцевальный зал"],
+            ["9:30–10:30", "Бальные танцы · старший возраст", "Андрей Викторович · танцевальный зал"],
+            ["10:30–12:00", "«Бархатный сезон» · 55+", "Зинаида Казакова · танцевальный зал"],
+            ["18:00–19:30", "Танцевальная терапия", "Зинаида Казакова · йога-зал"],
+            ["18:30–20:30", "Бальные танцы · старший возраст", "Андрей Викторович · фитнес-зал"]
+        ],
+        "Вторник": [
+            ["7:00–8:00", "Фитнес «Женское здоровье»", "Галина Деркачева · танцевальный зал"],
+            ["8:45–9:45", "Мягкий фитнес", "Екатерина Данченко · йога-зал"],
+            ["9:00–10:30", "Хатха-йога", "Лариса Волкова · фитнес-зал"],
+            ["11:30–13:30", "Танцевальная группа «Зажигай!» · 35+", "Екатерина Кошурникова · танцевальный зал"],
+            ["13:30–15:00", "Танцевальная группа «Серебро» · 50+", "Екатерина Кошурникова · танцевальный зал"],
+            ["17:45–19:00", "Бальные танцы · старший возраст", "Андрей Викторович · фитнес-зал"],
+            ["18:00–19:00", "Бачата", "Ксения Воронцова · танцевальный зал"],
+            ["19:00–21:30", "Бачата", "Ксения Воронцова · фитнес-зал"],
+            ["19:00–21:00", "Контактная импровизация", "Наталья Головизнина · йога-зал"]
+        ],
+        "Среда": [
+            ["6:30–7:20", "Бодифлекс для женщин", "Надежда Рязанова · танцевальный зал"],
+            ["8:15–9:30", "Хатха-йога", "Татьяна Тимшина · йога-зал"],
+            ["9:00–10:00", "Мягкий фитнес", "Екатерина Данченко · фитнес-зал"],
+            ["9:30–10:30", "Бальные танцы · старший возраст", "Андрей Викторович · танцевальный зал"],
+            ["10:30–12:00", "«Бархатный сезон» · 55+", "Зинаида Казакова · танцевальный зал"],
+            ["11:00–12:00", "Бальные танцы", "Людмила Смирнова · танцевальный зал"],
+            ["11:00–12:00", "Серебряный фитнес", "Екатерина Данченко · фитнес-зал"],
+            ["17:00–18:00", "Бальные танцы · старший возраст", "Андрей Викторович · фитнес-зал"],
+            ["18:30–21:00", "Бачата парная", "Ксения Воронцова · танцевальный зал"],
+            ["19:30–21:00", "Кундалини-йога", "Павел Чучкалов · йога-зал"]
+        ],
+        "Четверг": [
+            ["7:00–8:00", "Фитнес «Женское здоровье»", "Галина Деркачева · танцевальный зал"],
+            ["8:45–9:45", "Мягкий фитнес", "Екатерина Данченко · йога-зал"],
+            ["9:00–10:30", "Хатха-йога", "Лариса Волкова · фитнес-зал"],
+            ["9:30–10:30", "Бальные танцы", "Людмила Смирнова · танцевальный зал"],
+            ["10:30–13:00", "Танцевальный клуб «Совершенство»", "Алла Бабина · танцевальный зал"],
+            ["12:00–13:30", "Фитнес", "Галина Деркачева · фитнес-зал"],
+            ["13:45–15:00", "Каллиграфия", "Светлана Созонова · студия «Смородина»"],
+            ["18:00–21:30", "Бачата", "Ксения Воронцова · танцевальный зал"],
+            ["18:00–19:30", "Суставная гимнастика · 35+", "Екатерина Кошурникова · фитнес-зал"],
+            ["18:30–20:30", "Кундалини-йога", "Мария Меженяускайте · йога-зал"],
+            ["19:30–20:30", "Бальные танцы · старший возраст", "Андрей Викторович · фитнес-зал"]
+        ],
+        "Пятница": [
+            ["6:30–7:20", "Бодифлекс для женщин", "Надежда Рязанова · танцевальный зал"],
+            ["8:15–9:00", "Хатха-йога", "Татьяна Тимшина · йога-зал"],
+            ["9:00–10:00", "Мягкий фитнес", "Екатерина Данченко · фитнес-зал"],
+            ["9:30–11:00", "Бальные танцы · старший возраст", "Андрей Викторович · танцевальный зал"],
+            ["10:30–11:30", "«Бархатный сезон» · 55+", "Зинаида Казакова · танцевальный зал"],
+            ["11:30–13:30", "Танцевальная группа «Зажигай!» · 35+", "Екатерина Кошурникова · танцевальный зал"],
+            ["13:30–15:00", "Танцевальная группа «Серебро» · 50+", "Екатерина Кошурникова · танцевальный зал"],
+            ["14:00–16:00", "Ресурсная пятница", "Вера Демьянова · йога-зал"],
+            ["19:00–20:30", "Кундалини-йога", "Павел Чучкалов · йога-зал"],
+            ["19:30–21:00", "Контактная импровизация", "Наталья Головизнина · фитнес-зал"]
+        ],
+        "Суббота": [
+            ["9:00–10:30", "Женская йога", "Екатерина Данченко · фитнес-зал"],
+            ["9:00–11:00", "Йога", "Светлана Казакова · йога-зал"],
+            ["12:00–13:00", "Женственные танцы", "Татьяна Злобина · танцевальный зал"],
+            ["17:00–18:00", "Бальные танцы · старший возраст", "Андрей Викторович · фитнес-зал"],
+            ["17:30–19:30", "Звукотерапия и чайная церемония", "Алексей Власов · йога-зал"],
+            ["18:00–19:30", "Суставная гимнастика · 35+", "Екатерина Кошурникова · фитнес-зал"]
+        ],
+        "Воскресенье": [
+            ["9:00–10:00", "Фитнес", "Галина Деркачева · фитнес-зал"],
+            ["10:30–11:30", "Женская йога", "Татьяна Тимшина · фитнес-зал"],
+            ["12:00–13:00", "Кундалини + гонг", "Наталья Кузьмина · фитнес-зал"],
+            ["16:00–17:30", "Бачата парная", "Ксения Воронцова · фитнес-зал"]
+        ]
+    }
+};
+
+let currentKind = "kids";
+let currentDay = "Понедельник";
+
+const daysContainer = document.getElementById("days");
+const scheduleList = document.getElementById("scheduleList");
+
+function renderSchedule() {
+    const days = Object.keys(scheduleData[currentKind]);
+
+    if (!days.includes(currentDay)) {
+        currentDay = days[0];
+    }
+
+    daysContainer.innerHTML = days.map(day => `
+        <button type="button"
+            class="${day === currentDay ? "active" : ""}"
+            data-day="${day}">
+            ${day}
+        </button>
+    `).join("");
+
+    const activities = scheduleData[currentKind][currentDay];
+
+    if (!activities.length) {
+        scheduleList.innerHTML = `
+            <div class="empty">
+                Выходной день. В это время занятий нет.
+            </div>
+        `;
+        return;
+    }
+
+    scheduleList.innerHTML = activities.map(item => `
+        <div class="schedule-item">
+            <div class="schedule-time">${item[0]}</div>
+            <div class="schedule-name">${item[1]}</div>
+            <div class="schedule-info">${item[2]}</div>
+        </div>
+    `).join("");
+}
+
+daysContainer.addEventListener("click", function(event) {
+    const button = event.target.closest("[data-day]");
+
+    if (!button) return;
+
+    currentDay = button.dataset.day;
+    renderSchedule();
+});
+
+document.querySelectorAll("[data-kind]").forEach(button => {
+    button.addEventListener("click", function() {
+        currentKind = this.dataset.kind;
+
+        document.querySelectorAll("[data-kind]").forEach(item => {
+            item.classList.toggle("active", item === this);
+        });
+
+        currentDay = "Понедельник";
+        renderSchedule();
+    });
+});
+
+renderSchedule();
+
+/* Мобильное меню */
+
+const menuButton = document.getElementById("menuButton");
+const nav = document.getElementById("nav");
+
+menuButton.addEventListener("click", function() {
+    const isOpen = nav.classList.toggle("open");
+
+    menuButton.textContent = isOpen ? "×" : "☰";
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+});
+
+nav.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", function() {
+        nav.classList.remove("open");
+        menuButton.textContent = "☰";
+        menuButton.setAttribute("aria-expanded", "false");
+    });
+});
+</script>
+
+</body>
+</html>
